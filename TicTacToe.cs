@@ -65,36 +65,47 @@ namespace Tic_Tac_Toe
             AddValue('X', y, x);
         }
 
+        static bool IsValueInMatrix(int y, int x){
+            bool isEmpty = matrix[y,x] == ' ';
+
+            return !isEmpty;
+        }
+        static void AiRequest(){
+            Random r = new Random();
+
+          
+
+            bool validPositionSelected = false;
+
+            int y = 0;
+            int x = 0;
+
+           while(!validPositionSelected){
+                 y = (int) Math.Floor(r.NextDouble() * 3);
+                 x = Convert.ToInt32(Math.Floor(r.NextDouble() * 3));
+                bool isValueDefined = IsValueInMatrix(y,x);
+
+                validPositionSelected = !isValueDefined;
+           }
+            //add to matrix
+            AddValue('O', y, x);
+        }
+
         static void Main(string[] args)
         {
           
             PrintMatrix();
             InputRequest();
+            AiRequest();
             PrintMatrix();
 
 
             bool gameEnded = false;
             int turns = 0;
 
-            while (!gameEnded) {
-                InputRequest();
-                turns++;
-                //check if user won
-                gameEnded = CheckTheeLines();
-                //end after 9 turns
-                 if(turns >= 9){
-                    gameEnded = true;
-                }
-                if(!gameEnded){
-                    //AiRequest();
-                    turns++;
-                    //Check if Ai won
-                   gameEnded = CheckTheeLines(); 
-                }
-
-                
             }
-            }
+            
         }
     }
 
+           
