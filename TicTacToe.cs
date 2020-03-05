@@ -48,12 +48,15 @@ namespace Tic_Tac_Toe
                 Console.WriteLine("------");
             }
         }
+        
         static void AddValue(char value, int y, int x)
         {
             matrix[y, x] = value;
 
         }
-
+        /// <summary>
+        /// que tanto el usuario como la IA no se pueda sobreescibir datos
+        /// </summary>
         static void InputRequest()
         {
              bool validPositionSelected = false;
@@ -93,6 +96,9 @@ namespace Tic_Tac_Toe
 
             return !isEmpty;
         }
+        /// <summary>
+        /// Inteligencia artificial
+        /// </summary>
         static void AiRequest()
         {
             Random r = new Random();
@@ -116,6 +122,10 @@ namespace Tic_Tac_Toe
             //add to matrix
             AddValue('O', y, x);
         }
+        /// <summary>
+        /// verificar que sean 3 en 1 en todas las direcciones
+        /// </summary>
+        /// <returns></returns>
         static bool CheckTheeLines()
         {
             char value = ' ';
@@ -206,6 +216,7 @@ namespace Tic_Tac_Toe
                  }
             return false;
         }
+        
         static void Main(string[] args)
         {
 
@@ -216,7 +227,9 @@ namespace Tic_Tac_Toe
 
              
 
-
+            /// <summary>
+            /// verificar que el juego haya finalizado 
+            /// </summary>
             bool gameOver = false;
             int turns = 0;
             while (!gameOver)
@@ -241,7 +254,7 @@ namespace Tic_Tac_Toe
                 PrintMatrix();
 
 
-            }
+            } 
             PrintMatrix();
             Console.WriteLine("Game Over");
 
