@@ -217,25 +217,25 @@ namespace Tic_Tac_Toe
              
 
 
-            bool gameEnded = false;
+            bool gameOver = false;
             int turns = 0;
-            while (!gameEnded)
+            while (!gameOver)
             {
                 InputRequest();
                 turns++;
                 //check if user won
-                gameEnded = CheckTheeLines();
+                gameOver = CheckTheeLines();
                 //end after 9 turns
                 if (turns >= 9)
                 {
-                    gameEnded = true;
+                    gameOver = true;
                 }
-                if (!gameEnded)
+                if (!gameOver)
                 {
                     AiRequest();
                     turns++;
                     //Check if Ai won
-                    gameEnded = CheckTheeLines();
+                    gameOver = CheckTheeLines();
                 }
                 Console.WriteLine();
                 PrintMatrix();
